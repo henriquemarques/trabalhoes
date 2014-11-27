@@ -68,6 +68,9 @@ class AppController extends Controller {
 		switch($this->Auth->User("group_id")){
 			case '3':
 			$this->layout = 'client';
+			if(!$this->Session->read("Table") && $this->request->params["action"] != 'disponiveis'){
+				$this->redirect(array("controller"=>"tables","action"=>"disponiveis"));
+			}
 			break;
 			case '6';
 			$this->layout = 'kitchen';
@@ -75,6 +78,7 @@ class AppController extends Controller {
 
 
 		}
-		
+
+
 	}
 }

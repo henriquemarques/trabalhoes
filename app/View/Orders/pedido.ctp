@@ -8,7 +8,7 @@
 				$item = utf8_encode($item);
 			}
 		});
-		echo $this->Form->input('table_id',array('value'=>'1','type'=>'hidden')); 
+		echo $this->Form->input('table_id',array('value'=>$this->Session->read("Table"),'type'=>'hidden')); 
 		echo $this->Form->input('status',array('value'=>'Aberto','type'=>'hidden'));
 		?>
 		<div class="form-group">

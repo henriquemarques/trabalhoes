@@ -18,6 +18,7 @@
         <li><?php echo $this->Html->link('Consultar Despesa',array('controller' => 'orders','action' => 'despesas')); ?></li>
         <li><?php echo $this->Html->link('Efetuar Pedido',array('controller' => 'orders','action' => 'pedido')); ?></li>
       </ul>
+      <p class="navbar-text pull-left">Mesa: <strong><?php echo $this->Session->read("Table");?></strong></p>
       <p class="navbar-text pull-right">Logado como <strong><?php echo $this->Session->read("Auth.User.name");?></strong> <?php echo $this->Html->link('Sair',array('controller' => 'users','action' => 'logout')); ?></p>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

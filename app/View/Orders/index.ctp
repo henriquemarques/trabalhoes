@@ -1,7 +1,8 @@
 <div class="orders index">
 	<h2><?php echo __('Pedidos'); ?></h2>
 	<div class="row">
-		<?php foreach ($orders as $order): ?>
+		<?php						debug($orders);
+ foreach ($orders as $order): ?>
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
 				<div class="caption">
@@ -12,7 +13,6 @@
 						<strong>Itens:</strong></br>
 						<?php 
 						$total = 0;
-						debug($order);
 						foreach ($order['OrderDetail'] as $product):
 							$total += ($product['Product']['price']*$product['quantity']);
 						?>

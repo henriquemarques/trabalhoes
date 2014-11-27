@@ -101,4 +101,21 @@ class TablesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function disponiveis(){
+		$this->Table->recursive = 0;
+		$filtros["conditions"]["and"]["Table.disponivel"] = 1;
+		$tables = $this->Table->find("list",$filtros);
+		$this->set('tables', $tables);
+	}
+
+	public function selecionar_mesa(){	
+		$this->Session->write('Table', $this->request->data["Table"]["table_id"]);
+		$this->request->data["Table"]["id"] = $this->request->data["Table"]["table_id"];
+		$this->request->data["Table"]["disponivel"] = 0;
+		unset($this->request->data["Table"]["table_id"]);
+		$this->Table->save($this->request->data);
+		$this->redirect(array("controller"=>"pages","action"=>"display","client"));
+
+	}
 }

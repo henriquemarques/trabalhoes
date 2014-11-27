@@ -14,7 +14,7 @@ class UsersController extends AppController {
  * @var array
  */
 public $components = array('Paginator');
-
+public $uses = array("User","Table");
 /**
  * index method
  *
@@ -108,7 +108,7 @@ public function delete($id = null) {
 public function direciona(){
 	switch($this->Auth->User("group_id")){
 		case '3':
-			$this->redirect(array('controller'=>'pages','action' => 'display','client'));
+			$this->redirect(array('controller'=>'tables','action' => 'disponiveis'));
 			break;
 		case '6':
 			$this->redirect(array('controller'=>'orders','action' => 'index'));
@@ -126,6 +126,10 @@ public function login() {
 }
 
 public function logout() {
+	$this->request->data["Table"]["id"] = $this->Session->read("Table");
+	$this->request->data["Table"]["disponivel"] = 1;
+	unset($this->request->data["Table"]["table_id"]);
+	$this->Table->save($this->request->data);
 	return $this->redirect($this->Auth->logout());
 
 }
