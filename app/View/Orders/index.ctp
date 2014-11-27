@@ -1,7 +1,7 @@
 <div class="orders index">
 	<h2><?php echo __('Pedidos'); ?></h2>
 	<div class="row">
-		<?php						debug($orders);
+		<?php						
  foreach ($orders as $order): ?>
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
@@ -13,15 +13,22 @@
 						<strong>Itens:</strong></br>
 						<?php 
 						$total = 0;
-						foreach ($order['OrderDetail'] as $product):
-							$total += ($product['Product']['price']*$product['quantity']);
+						foreach ($order['Product'] as $product):
+							$total += ($product['price']*$product["OrdersProduct"]['quantity']);
 						?>
 
-						- <?php echo utf8_encode($product['Product']["name"]);?></br>
+						- <?php echo utf8_encode($product["name"]);?></br>
 					<?php endforeach; ?>
 						<strong>Valor: </strong>R$ <?php echo $total;?></br>
 				</p>
-				<p><a href="#" class="btn btn-success" role="button">Liberar Pedido</a></p>
+				<p>
+					<?php
+					 echo $this->Form->create("Order",array("action"=>"liberar_pedido"));
+					 echo $this->Form->input("id",array("value"=>$order['Order']['id'],'type'=>'hidden'));
+					 echo $this->Form->button("Liberar Pedido",array("class"=>"btn btn-success","type"=>"submit"));
+					 echo $this->Form->end();
+					 ?>
+					</p>
 			</div>
 		</div>
 	</div>

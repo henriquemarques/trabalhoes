@@ -23,7 +23,8 @@ public $components = array('Paginator', 'Session');
  */
 public function index() {
 	$this->Order->recursive = 2;
-	$this->set('orders', $this->Paginator->paginate());
+	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0)));
+	$this->set('orders', $orders);
 }
 
 /**
@@ -122,8 +123,12 @@ public function despesas(){
 public function pedido() {
 	$products = $this->Order->Product->find('list');
 	$this->set(compact('tables', 'users', 'products'));
+}
 
-
+public function liberar_pedido(){
+	$this->request->data["Order"]["status"] = 1;
+	$this->Order->save($this->request->data);
+	$this->redirect(array("action"=>"index"));
 }
 
 }

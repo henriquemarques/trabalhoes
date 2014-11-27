@@ -69,7 +69,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => '127.0.0.1',
 		'login' => 'root',
-		'password' => '123',
+		'password' => '123456',
 		'database' => 'engenharia_software',
 		'prefix' => '',
 		//'encoding' => 'utf8',
