@@ -24,7 +24,13 @@ public $uses = array("Order","Product");
  */
 public function index() {
 	$this->Order->recursive = 2;
-	$this->set('orders', $this->Paginator->paginate());
+	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0)));
+	$this->set('orders', $orders);
+}
+public function listar(){
+		$this->Order->recursive = 2;
+	$orders = $this->Paginator->paginate();
+	$this->set(compact('orders'));
 }
 
 /**
@@ -163,6 +169,12 @@ public function finalizar_pedido(){
 	$this->Order->save($pedidos_sessao);
 	$this->Session->write('Pedidos', array());
 	$this->redirect(array("controller"=>"orders","action"=>"despesas","client"));
+}
+
+public function liberar_pedido(){
+	$this->request->data["Order"]["status"] = 1;
+	$this->Order->save($this->request->data);
+	$this->redirect(array("action"=>"index"));
 }
 
 }
