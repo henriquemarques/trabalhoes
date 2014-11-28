@@ -15,6 +15,7 @@ class OrdersController extends AppController {
  * @var array
  */
 public $components = array('Paginator', 'Session');
+public $uses = array("Order","Product");
 
 /**
  * index method
@@ -121,9 +122,47 @@ public function despesas(){
 
 public function pedido() {
 	$products = $this->Order->Product->find('list');
-	$this->set(compact('tables', 'users', 'products'));
+	$pedidos_sessao = $this->Session->read("Pedidos");
+	if(count($pedidos_sessao) > 0){
+		$pedidos_sessao['total'] = 0;
+		foreach($pedidos_sessao['Product'] as $index => $pedido){
+			$pedidos_sessao['Product'][$index]['Product'] = $this->Product->find('first',array('conditions' => array('id' => $pedido['product_id'])))['Product'];
+			$pedidos_sessao['total'] += $pedidos_sessao['Product'][$index]['Product']['price'] * $pedido['quantity'];
+		}
+	}
+	$this->set(compact('tables', 'users', 'products', 'pedidos_sessao'));
+}
 
+public function adicionar_pedido(){
+	if($this->request->data['OrderDetail']['quantity'] > 0){
+		$pedidos_sessao = $this->Session->read("Pedidos");
+		if(!$pedidos_sessao){
+			$pedidos_sessao = array();
+		}
+		$pedidos_sessao['table_id'] = $this->request->data['Order']['table_id'];
+		$pedidos_sessao['status'] = $this->request->data['Order']['status'];
+		$pedidos_sessao['Product'][$this->request->data['OrderDetail']['product_id']] = $this->request->data['OrderDetail'];
+		$this->Session->write('Pedidos', $pedidos_sessao);
+	}
+	$this->redirect(array("controller"=>"orders","action"=>"pedido","client"));
+}
 
+public function cancelar_pedido(){
+	$pedidos_sessao = $this->Session->read("Pedidos");
+	if($pedidos_sessao['Product'][$this->request->params['named']['product_id']]){
+		unset($pedidos_sessao['Product'][$this->request->params['named']['product_id']]);
+		$this->Session->write('Pedidos', $pedidos_sessao);
+	}
+	$this->redirect(array("controller"=>"orders","action"=>"pedido","client"));
+}
+
+public function finalizar_pedido(){
+	$pedidos_sessao = $this->Session->read("Pedidos");
+	$pedidos_sessao['user_id'] = $this->Auth->user('id');
+	$this->Order->create();
+	$this->Order->save($pedidos_sessao);
+	$this->Session->write('Pedidos', array());
+	$this->redirect(array("controller"=>"orders","action"=>"despesas","client"));
 }
 
 }

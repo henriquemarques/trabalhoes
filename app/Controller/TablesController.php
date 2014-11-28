@@ -109,7 +109,7 @@ class TablesController extends AppController {
 		$this->set('tables', $tables);
 	}
 
-	public function selecionar_mesa(){	
+	public function selecionar_mesa(){
 		$this->Session->write('Table', $this->request->data["Table"]["table_id"]);
 		$this->request->data["Table"]["id"] = $this->request->data["Table"]["table_id"];
 		$this->request->data["Table"]["disponivel"] = 0;

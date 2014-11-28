@@ -68,7 +68,7 @@ class AppController extends Controller {
 		switch($this->Auth->User("group_id")){
 			case '3':
 			$this->layout = 'client';
-			if(!$this->Session->read("Table") && $this->request->params["action"] != 'disponiveis'){
+			if(!$this->Session->read("Table") && $this->request->params["action"] != 'disponiveis' && $this->request->params["action"] != 'selecionar_mesa'){
 				$this->redirect(array("controller"=>"tables","action"=>"disponiveis"));
 			}
 			break;
