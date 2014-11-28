@@ -26,6 +26,11 @@ public function index() {
 	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0)));
 	$this->set('orders', $orders);
 }
+public function listar(){
+		$this->Order->recursive = 2;
+	$orders = $this->Paginator->paginate();
+	$this->set(compact('orders'));
+}
 
 /**
  * view method
