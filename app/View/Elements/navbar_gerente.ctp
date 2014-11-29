@@ -17,6 +17,7 @@
         <li><?php echo $this->Html->link('Manter Usuários',array('controller' => 'users','action' => 'index')); ?></li>
         <li><?php echo $this->Html->link('Manter Pedidos',array('controller' => 'orders','action' => 'listar')); ?></li>
         <li><?php echo $this->Html->link('Manter Mesas',array('controller' => 'tables','action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link('Manter Funcionarios',array('controller' => 'users','action' => 'funcionarios')); ?></li>
       </ul>
       <p class="navbar-text pull-right">Logado como <strong><?php echo $this->Session->read("Auth.User.name");?></strong> <?php echo $this->Html->link('Sair',array('controller' => 'users','action' => 'logout')); ?></p>
     </div><!-- /.navbar-collapse -->

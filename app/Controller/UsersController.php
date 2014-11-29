@@ -133,6 +133,21 @@ public function logout() {
 	return $this->redirect($this->Auth->logout());
 
 }
+public function funcionarios(){
+
+}
+public function consultar(){
+	if($this->request->query){
+		$filtro["conditions"] = array("User.name LIKE"=>"%{$this->request->query["name"]}%");
+		$user = $this->User->find('first',$filtro);
+		if(isset($user["User"]["id"])){
+			$this->redirect(array("action"=>'view',$user["User"]["id"]));
+		}else{
+			$this->Session->setFlash(__('Usuário não cadastrado'));
+
+		}
+	}
+}
 public function beforeFilter() {
 	parent::beforeFilter();
 
