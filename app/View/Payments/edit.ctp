@@ -4,8 +4,8 @@
 		<legend><?php echo __('Edit Payment'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('order_id');
-		echo $this->Form->input('status');
+		echo $this->Form->input('order_id',array("label"=>"Pedido"));
+		echo $this->Form->input('status',array("options"=>array("0"=>"Não Pago","1"=>"Pago")));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -15,8 +15,6 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Payment.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Payment.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Payments'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Orders'), array('controller' => 'orders', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Order'), array('controller' => 'orders', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Pagamentos'), array('action' => 'index')); ?></li>
 	</ul>
 </div>

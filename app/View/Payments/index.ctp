@@ -1,5 +1,5 @@
 <div class="payments index">
-	<h2><?php echo __('Payments'); ?></h2>
+	<h2><?php echo __('Pagamentos'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -16,7 +16,8 @@
 		<td>
 			<?php echo $this->Html->link($payment['Order']['id'], array('controller' => 'orders', 'action' => 'view', $payment['Order']['id'])); ?>
 		</td>
-		<td><?php echo h($payment['Payment']['status']); ?>&nbsp;</td>
+		<td><?php echo ($payment['Payment']['status']) ? '<span class="label label-success">Pago</span>
+' : '<span class="label label-danger">Não Pago</span>'; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $payment['Payment']['id'])); ?>
@@ -43,8 +44,6 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Payment'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Orders'), array('controller' => 'orders', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Order'), array('controller' => 'orders', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar Pagamento'), array('action' => 'add')); ?></li>
 	</ul>
 </div>
