@@ -7,6 +7,6 @@
 		?>
 		<div class="form-group">
 	</fieldset>
-	<?php echo $this->Form->end(__('Selecionar Pedido')); ?>
+	<?php echo $this->Form->end(__('Selecionar Mesa')); ?>
 </div>
 

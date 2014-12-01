@@ -24,7 +24,7 @@ public $uses = array("Order","Product");
  */
 public function index() {
 	$this->Order->recursive = 2;
-	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0)));
+	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0),"order"=>array('Order.id' => 'DESC')));
 	$this->set('orders', $orders);
 }
 public function listar(){
@@ -121,6 +121,7 @@ public function delete($id = null) {
 public function despesas(){ 	
 	$this->Order->recursive = 2;
 	$filter["conditions"]["Order.user_id"] = $this->Auth->User("id");
+	$filter["order"] = array('Order.id' => 'DESC');
 	$this->paginate = $filter; 	
 	$this->set('orders', $this->Paginator->paginate());
 

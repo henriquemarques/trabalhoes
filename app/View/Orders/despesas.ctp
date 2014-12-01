@@ -20,6 +20,7 @@
 						- <?php echo utf8_encode($product["name"]);?></br>
 					<?php endforeach; ?>
 						<strong>Valor: </strong>R$ <?php echo $total;?></br>
+						<strong>Status: </strong><?php echo ($order['Order']['status']) ? '<span style="color:#009900">Pedido liberado</span>' : '<span style="color:#990000">Aguardando cozinha</span>';?></br>
 				</p>
 			</div>
 		</div>
