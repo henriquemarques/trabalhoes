@@ -118,4 +118,12 @@ class TablesController extends AppController {
 		$this->redirect(array("controller"=>"pages","action"=>"display","client"));
 
 	}
+
+	public function liberar(){
+		$this->request->data["Table"]["id"] = $this->request->params['pass'][0];
+		$this->request->data["Table"]["disponivel"] = 1;
+		unset($this->request->data["Table"]["table_id"]);
+		$this->Table->save($this->request->data);
+		$this->redirect(array("controller"=>"tables","action"=>"index","client"));
+	}
 }

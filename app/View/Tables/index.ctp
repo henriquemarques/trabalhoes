@@ -5,6 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('number'); ?></th>
+			<th>Status</th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -13,10 +14,14 @@
 	<tr>
 		<td><?php echo h($table['Table']['id']); ?>&nbsp;</td>
 		<td><?php echo h($table['Table']['number']); ?>&nbsp;</td>
+		<td><?php echo ($table['Table']['disponivel']) ? 'Liberada' : 'Ocupada'; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $table['Table']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $table['Table']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $table['Table']['id']), array(), __('Are you sure you want to delete # %s?', $table['Table']['id'])); ?>
+			<?php if(!$table['Table']['disponivel']){ ?>
+			<?php echo $this->Html->link(__('Liberar'), array('action' => 'liberar', $table['Table']['id'])); ?>
+			<?php } ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
