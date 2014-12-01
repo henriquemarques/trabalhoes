@@ -148,6 +148,20 @@ public function consultar(){
 		}
 	}
 }
+
+public function cadastrar(){
+	if ($this->request->is('post')) {
+		$this->User->create();
+		if ($this->User->save($this->request->data)) {
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+		} else {
+			$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+		}
+	}
+}
+
 public function beforeFilter() {
 	parent::beforeFilter();
 

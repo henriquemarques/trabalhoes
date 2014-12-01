@@ -24,6 +24,9 @@
 	<?php
 		echo $this->Html->meta('icon');
 
+		echo $this->Html->script('jquery.min');
+		echo $this->Html->script('bootstrap.min');
+
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('main');

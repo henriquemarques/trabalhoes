@@ -8,14 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ES</a>
+      <?php echo $this->Html->link('ES', array('controller' => 'pages', 'action'=>'index'), array('class' => 'navbar-brand')); ?>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><?php echo $this->Html->link('Listar Pedidos',array('controller' => 'orders','action' => 'index')); ?></li>
       </ul>
+      <?php if(AuthComponent::user('name')){ ?>
       <p class="navbar-text pull-right">Logado como <strong><?php echo $this->Session->read("Auth.User.name");?></strong> <?php echo $this->Html->link('Sair',array('controller' => 'users','action' => 'logout')); ?></p>
+      <?php } ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
