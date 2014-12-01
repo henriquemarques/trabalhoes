@@ -116,6 +116,9 @@ public function direciona(){
 		case '1':
 				$this->redirect(array('controller'=>'pages','action' => 'display','gerente'));
 			break;
+		case '2':
+				$this->redirect(array('controller'=>'payments','action' => 'index'));
+			break;
 	}
 	debug($this->Auth->User("group_id"));
 }
