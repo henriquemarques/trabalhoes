@@ -1,0 +1,631 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-12-01 20:04+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/EmployersController.php:37;69;94
+msgid "Invalid employer"
+msgstr "Funcionário Inválido"
+
+#: Controller/EmployersController.php:52;73
+msgid "The employer has been saved."
+msgstr "O Funcionario foi salvo"
+
+#: Controller/EmployersController.php:55;76
+msgid "The employer não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/EmployersController.php:98
+msgid "The employer has been deleted."
+msgstr ""
+
+#: Controller/EmployersController.php:100
+msgid "The employer could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/GroupsController.php:37;69;94
+msgid "Invalid group"
+msgstr ""
+
+#: Controller/GroupsController.php:52;73
+msgid "The group has been saved."
+msgstr ""
+
+#: Controller/GroupsController.php:55;76
+msgid "The group não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/GroupsController.php:98
+msgid "The group has been deleted."
+msgstr ""
+
+#: Controller/GroupsController.php:100
+msgid "The group could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/OrdersController.php:45;81;110
+msgid "Invalid order"
+msgstr ""
+
+#: Controller/OrdersController.php:60;85
+msgid "The order has been saved."
+msgstr ""
+
+#: Controller/OrdersController.php:63;88
+msgid "The order não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/OrdersController.php:114
+msgid "The order has been deleted."
+msgstr ""
+
+#: Controller/OrdersController.php:116
+msgid "The order could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ProductsController.php:40;74;101
+msgid "Invalid product"
+msgstr ""
+
+#: Controller/ProductsController.php:55;78
+msgid "The product has been saved."
+msgstr ""
+
+#: Controller/ProductsController.php:58;81
+msgid "The product não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/ProductsController.php:105
+msgid "The product has been deleted."
+msgstr ""
+
+#: Controller/ProductsController.php:107
+msgid "The product could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/TablesController.php:37;69;94
+msgid "Invalid table"
+msgstr ""
+
+#: Controller/TablesController.php:52;73
+msgid "The table has been saved."
+msgstr ""
+
+#: Controller/TablesController.php:55;76
+msgid "The table não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/TablesController.php:98
+msgid "The table has been deleted."
+msgstr ""
+
+#: Controller/TablesController.php:100
+msgid "The table could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:37;71;98
+msgid "Invalid user"
+msgstr ""
+
+#: Controller/UsersController.php:52;75
+msgid "The user has been saved."
+msgstr "Usuário cadastro com sucesso."
+
+#: Controller/UsersController.php:55;78;160
+msgid "The user não pode ser salvo. Por favor, tente novamente."
+msgstr ""
+
+#: Controller/UsersController.php:102
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:104
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:124
+msgid "Your username or password was incorrect."
+msgstr "Usuário ou Senha Incorretos"
+
+#: Controller/UsersController.php:146
+msgid "Usuário não cadastrado"
+msgstr ""
+
+#: View/Employers/add.ctp:4
+msgid "Add Employer"
+msgstr ""
+
+#: View/Employers/add.ctp:9
+#: View/Employers/edit.ctp:10
+#: View/Groups/add.ctp:9
+#: View/Groups/edit.ctp:10
+#: View/Orders/add.ctp:11
+#: View/Orders/edit.ctp:12
+#: View/Products/add.ctp:11
+#: View/Products/edit.ctp:12
+#: View/Tables/add.ctp:9
+#: View/Tables/edit.ctp:10
+#: View/Users/add.ctp:14
+#: View/Users/edit.ctp:15
+msgid "Submit"
+msgstr "Confirmar"
+
+#: View/Employers/add.ctp:12
+#: View/Employers/edit.ctp:13
+#: View/Employers/index.ctp:8;40
+#: View/Employers/view.ctp:17
+#: View/Groups/add.ctp:12
+#: View/Groups/edit.ctp:13
+#: View/Groups/index.ctp:10;44
+#: View/Groups/view.ctp:27;51
+#: View/Orders/add.ctp:14
+#: View/Orders/listar.ctp:10;46
+#: View/Products/add.ctp:14
+#: View/Products/edit.ctp:15
+#: View/Products/index.ctp:9;42
+#: View/Products/view.ctp:22;41
+#: View/Tables/add.ctp:12
+#: View/Tables/edit.ctp:13
+#: View/Tables/index.ctp:8;40
+#: View/Users/add.ctp:17
+#: View/Users/consultar.ctp:9
+#: View/Users/edit.ctp:18
+#: View/Users/funcionarios.ctp:5
+#: View/Users/index.ctp:15;56
+msgid "Actions"
+msgstr "Ações"
+
+#: View/Employers/add.ctp:15
+#: View/Employers/edit.ctp:17
+#: View/Employers/view.ctp:21
+msgid "List Employers"
+msgstr "Lista de Funcionários"
+
+#: View/Employers/edit.ctp:4
+#: View/Employers/view.ctp:19
+msgid "Edit Employer"
+msgstr ""
+
+#: View/Employers/edit.ctp:16
+#: View/Employers/index.ctp:19
+#: View/Groups/edit.ctp:16
+#: View/Groups/index.ctp:23
+#: View/Groups/view.ctp:67
+#: View/Orders/listar.ctp:25
+#: View/Products/edit.ctp:18
+#: View/Products/index.ctp:21
+#: View/Products/view.ctp:52
+#: View/Tables/edit.ctp:16
+#: View/Tables/index.ctp:19
+#: View/Users/edit.ctp:21
+#: View/Users/index.ctp:35
+msgid "Delete"
+msgstr "Excluir"
+
+#: View/Employers/edit.ctp:16
+#: View/Employers/index.ctp:19
+#: View/Employers/view.ctp:20
+#: View/Groups/edit.ctp:16
+#: View/Groups/index.ctp:23
+#: View/Groups/view.ctp:30;67
+#: View/Orders/listar.ctp:25
+#: View/Products/edit.ctp:18
+#: View/Products/index.ctp:21
+#: View/Products/view.ctp:25;52
+#: View/Tables/edit.ctp:16
+#: View/Tables/index.ctp:19
+#: View/Users/edit.ctp:21
+#: View/Users/index.ctp:35
+msgid "Are you sure you want to delete # %s?"
+msgstr "Tem certeza que deseja deletar # %s?"
+
+#: View/Employers/index.ctp:2
+msgid "Employers"
+msgstr ""
+
+#: View/Employers/index.ctp:17
+#: View/Groups/index.ctp:21
+#: View/Groups/view.ctp:65
+#: View/Orders/listar.ctp:23
+#: View/Products/index.ctp:19
+#: View/Products/view.ctp:50
+#: View/Tables/index.ctp:17
+#: View/Users/index.ctp:33
+msgid "View"
+msgstr "Visualizar"
+
+#: View/Employers/index.ctp:18
+#: View/Groups/index.ctp:22
+#: View/Groups/view.ctp:66
+#: View/Orders/listar.ctp:24
+#: View/Products/index.ctp:20
+#: View/Products/view.ctp:51
+#: View/Tables/index.ctp:18
+#: View/Users/index.ctp:34
+msgid "Edit"
+msgstr "Editar"
+
+#: View/Employers/index.ctp:28
+#: View/Groups/index.ctp:32
+#: View/Orders/listar.ctp:34
+#: View/Products/index.ctp:30
+#: View/Tables/index.ctp:28
+#: View/Users/index.ctp:44
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr "Pagina {:page} de {:pages}, mostrando {:current} registros de um total de {:count}, começando no registro {:start}, terminando em {:end}"
+
+#: View/Employers/index.ctp:33
+#: View/Groups/index.ctp:37
+#: View/Orders/listar.ctp:39
+#: View/Products/index.ctp:35
+#: View/Tables/index.ctp:33
+#: View/Users/index.ctp:49
+msgid "previous"
+msgstr "Anterior"
+
+#: View/Employers/index.ctp:35
+#: View/Groups/index.ctp:39
+#: View/Orders/listar.ctp:41
+#: View/Products/index.ctp:37
+#: View/Tables/index.ctp:35
+#: View/Users/index.ctp:51
+msgid "next"
+msgstr "Proximo"
+
+#: View/Employers/index.ctp:42
+#: View/Employers/view.ctp:22
+msgid "New Employer"
+msgstr ""
+
+#: View/Employers/view.ctp:2
+msgid "Employer"
+msgstr ""
+
+#: View/Employers/view.ctp:4
+#: View/Groups/view.ctp:4;42
+#: View/Products/view.ctp:4;37
+#: View/Tables/view.ctp:4
+msgid "Id"
+msgstr ""
+
+#: View/Employers/view.ctp:9
+#: View/Groups/view.ctp:9;43
+#: View/Products/view.ctp:9
+msgid "Name"
+msgstr "Nome"
+
+#: View/Employers/view.ctp:20
+msgid "Delete Employer"
+msgstr ""
+
+#: View/Groups/add.ctp:4
+msgid "Add Group"
+msgstr ""
+
+#: View/Groups/add.ctp:15
+#: View/Groups/edit.ctp:17
+#: View/Groups/view.ctp:31
+#: View/Orders/listar.ctp:49
+#: View/Users/add.ctp:21
+#: View/Users/edit.ctp:23
+#: View/Users/index.ctp:59
+msgid "List Groups"
+msgstr "Listar Grupos"
+
+#: View/Groups/add.ctp:16
+#: View/Groups/edit.ctp:18
+#: View/Groups/index.ctp:47
+#: View/Groups/view.ctp:33
+#: View/Orders/add.ctp:20
+#: View/Users/add.ctp:20
+#: View/Users/edit.ctp:22
+msgid "List Users"
+msgstr "Listar Usuários"
+
+#: View/Groups/add.ctp:17
+#: View/Groups/edit.ctp:19
+#: View/Groups/index.ctp:48
+#: View/Groups/view.ctp:34;76
+#: View/Orders/add.ctp:21
+#: View/Users/index.ctp:58
+msgid "New User"
+msgstr "Novo Usuário"
+
+#: View/Groups/edit.ctp:4
+#: View/Groups/view.ctp:29
+msgid "Edit Group"
+msgstr "Editar Grupo"
+
+#: View/Groups/index.ctp:2
+msgid "Groups"
+msgstr "Grupos"
+
+#: View/Groups/index.ctp:46
+#: View/Groups/view.ctp:32
+#: View/Orders/listar.ctp:50
+#: View/Users/add.ctp:22
+#: View/Users/edit.ctp:24
+#: View/Users/index.ctp:60
+msgid "New Group"
+msgstr "Novo Grupo"
+
+#: View/Groups/view.ctp:2
+msgid "Group"
+msgstr "Grupo"
+
+#: View/Groups/view.ctp:14;48
+msgid "Created"
+msgstr "Criado"
+
+#: View/Groups/view.ctp:19;49
+msgid "Modified"
+msgstr "Modificado"
+
+#: View/Groups/view.ctp:30
+msgid "Delete Group"
+msgstr "Deletar Grupo"
+
+#: View/Groups/view.ctp:38
+msgid "Related Users"
+msgstr "Usuários Relacionados"
+
+#: View/Groups/view.ctp:44
+msgid "Phone"
+msgstr "Telefone"
+
+#: View/Groups/view.ctp:45
+msgid "Username"
+msgstr "Usuário"
+
+#: View/Groups/view.ctp:46
+msgid "Address"
+msgstr "Endereço"
+
+#: View/Groups/view.ctp:47
+msgid "Password"
+msgstr "Senha"
+
+#: View/Groups/view.ctp:50
+msgid "Group Id"
+msgstr "Grupo"
+
+#: View/Orders/add.ctp:4
+msgid "Add Order"
+msgstr "Fazer Pedido"
+
+#: View/Orders/add.ctp:17
+#: View/Orders/listar.ctp:51
+#: View/Products/add.ctp:18
+#: View/Products/edit.ctp:20
+#: View/Products/index.ctp:45
+#: View/Products/view.ctp:28
+#: View/Tables/add.ctp:16
+#: View/Tables/edit.ctp:18
+#: View/Tables/index.ctp:43
+#: View/Users/add.ctp:23
+#: View/Users/edit.ctp:25
+#: View/Users/index.ctp:61
+msgid "List Orders"
+msgstr "Listar Pedidos"
+
+#: View/Orders/add.ctp:18
+#: View/Tables/add.ctp:15
+#: View/Tables/edit.ctp:17
+msgid "List Tables"
+msgstr "Listar Mesas"
+
+#: View/Orders/add.ctp:19
+#: View/Tables/index.ctp:42
+msgid "New Table"
+msgstr "Nova Mesa"
+
+#: View/Orders/add.ctp:22
+msgid "List Order Details"
+msgstr ""
+
+#: View/Orders/add.ctp:23
+msgid "New Order Detail"
+msgstr ""
+
+#: View/Orders/despesas.ctp:2
+#: View/Orders/index.ctp:2
+msgid "Pedidos"
+msgstr ""
+
+#: View/Orders/edit.ctp:4
+msgid "Edit Order"
+msgstr "Editar Pedido"
+
+#: View/Orders/listar.ctp:2
+msgid "Orders"
+msgstr "Pedidos"
+
+#: View/Orders/listar.ctp:48;52
+#: View/Products/add.ctp:19
+#: View/Products/edit.ctp:21
+#: View/Products/index.ctp:46
+#: View/Products/view.ctp:29;61
+#: View/Tables/add.ctp:17
+#: View/Tables/edit.ctp:19
+#: View/Tables/index.ctp:44
+#: View/Users/add.ctp:24
+#: View/Users/edit.ctp:26
+#: View/Users/index.ctp:62
+msgid "New Order"
+msgstr "Novo Pedido"
+
+#: View/Orders/pedido.ctp:31
+msgid "Efetuar Pedido"
+msgstr ""
+
+#: View/Orders/pedido.ctp:55
+msgid "Adicionar Pedido"
+msgstr ""
+
+#: View/Orders/view.ctp:2
+msgid "Order"
+msgstr ""
+
+#: View/Products/add.ctp:4
+msgid "Add Product"
+msgstr ""
+
+#: View/Products/add.ctp:17
+#: View/Products/edit.ctp:19
+#: View/Products/view.ctp:26
+msgid "List Products"
+msgstr ""
+
+#: View/Products/edit.ctp:4
+#: View/Products/view.ctp:24
+msgid "Edit Product"
+msgstr ""
+
+#: View/Products/index.ctp:2
+msgid "Products"
+msgstr ""
+
+#: View/Products/index.ctp:44
+#: View/Products/view.ctp:27
+msgid "New Product"
+msgstr "Novo Produto"
+
+#: View/Products/view.ctp:2
+msgid "Product"
+msgstr "Produto"
+
+#: View/Products/view.ctp:14
+msgid "Price"
+msgstr "Preço"
+
+#: View/Products/view.ctp:25
+msgid "Delete Product"
+msgstr "Deletar Produto"
+
+#: View/Products/view.ctp:33
+msgid "Related Orders"
+msgstr ""
+
+#: View/Products/view.ctp:38
+msgid "Table Id"
+msgstr ""
+
+#: View/Products/view.ctp:39
+msgid "Status"
+msgstr ""
+
+#: View/Products/view.ctp:40
+msgid "User Id"
+msgstr ""
+
+#: View/Tables/add.ctp:4
+msgid "Add Table"
+msgstr ""
+
+#: View/Tables/disponiveis.ctp:4
+msgid "Selecionar Mesa"
+msgstr ""
+
+#: View/Tables/disponiveis.ctp:10
+msgid "Selecionar Pedido"
+msgstr ""
+
+#: View/Tables/edit.ctp:4
+msgid "Edit Table"
+msgstr ""
+
+#: View/Tables/index.ctp:2
+msgid "Tables"
+msgstr "Mesas"
+
+#: View/Tables/view.ctp:2
+msgid "Table"
+msgstr "Mesa"
+
+#: View/Tables/view.ctp:9
+msgid "Number"
+msgstr "Número"
+
+#: View/Users/add.ctp:4
+msgid "Add User"
+msgstr "Adicionar Usuário"
+
+#: View/Users/consultar.ctp:11
+#: View/Users/funcionarios.ctp:7
+msgid "Consultar"
+msgstr ""
+
+#: View/Users/consultar.ctp:12
+#: View/Users/funcionarios.ctp:8
+msgid "Inserir Funcionário"
+msgstr ""
+
+#: View/Users/edit.ctp:4
+msgid "Edit User"
+msgstr ""
+
+#: View/Users/index.ctp:2
+msgid "Users"
+msgstr ""
+
+#: View/Users/login.ctp:6
+msgid "Cadastro"
+msgstr ""
+
+#: View/Users/login.ctp:25
+msgid "Login"
+msgstr ""
+
+#: View/Users/view.ctp:12
+msgid "Alterar Funcionário"
+msgstr ""
+
+#: View/Users/view.ctp:13
+msgid "Excluir Funcionário"
+msgstr ""
+
+#: View/Users/view.ctp:13
+msgid "Tem certeza que deseja excluir o funcionário "
+msgstr ""
+
+#: Model/Group.php:validation for field name
+#: Model/User.php:validation for field name;validation for field username;validation for field address;validation for field password
+msgid "notEmpty"
+msgstr ""
+
+#: Model/User.php:validation for field phone;validation for field group_id
+msgid "numeric"
+msgstr ""
+
+#: View/Errors/error400.ctp:19
+#: View/Errors/error500.ctp:19
+msgid "Error"
+msgstr ""
+
+#: View/Errors/error400.ctp:21
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: View/Errors/error500.ctp:20
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: View/Layouts/error.ctp:17
+msgid "CakePHP: the rapid development php framework"
+msgstr ""
+
+#: webroot/test.php:93
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+

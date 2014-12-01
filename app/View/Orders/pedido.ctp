@@ -2,7 +2,7 @@
 	<?php if(count($pedidos_sessao) > 0){ ?>
 	<fieldset>
 		<legend>Produtos ja adicionados</legend>
-		<table cellpadding="0" cellspacing="0" border="0">
+		<table class="table" cellpadding="0" cellspacing="0" border="0">
 			<tr>
 				<th>Produto</th>
 				<th>Quantidade</th>
@@ -12,7 +12,7 @@
 			</tr>
 			<?php foreach($pedidos_sessao['Product'] as $pedido){ ?>
 			<tr>
-				<td><?php echo $pedido['Product']['name']; ?></td>
+				<td><?php echo utf8_encode($pedido['Product']['name']); ?></td>
 				<td><?php echo $pedido['quantity']; ?></td>
 				<td><?php echo $pedido['Product']['price']; ?></td>
 				<td><?php echo $pedido['Product']['price'] * $pedido['quantity']; ?></td>

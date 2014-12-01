@@ -38,7 +38,10 @@
 </head>
 <body>
 	 <header>
-    <?php echo $this->Element("navbar_gerente");?>
+
+    <?php if($this->Session->read("Auth.User")){
+    	echo $this->Element("navbar_gerente");	
+    } ?>
   </header>
 	<div class="container-fluid">
 		<div class="row">
