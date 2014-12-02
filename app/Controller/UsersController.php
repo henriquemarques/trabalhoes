@@ -119,6 +119,9 @@ public function direciona(){
 		case '2':
 				$this->redirect(array('controller'=>'payments','action' => 'index'));
 			break;
+		case '4':
+				$this->redirect(array('controller'=>'tables','action' => 'garcon'));	
+			break;	
 	}
 	debug($this->Auth->User("group_id"));
 }

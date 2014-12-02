@@ -27,6 +27,27 @@ public function index() {
 	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0),"order"=>array('Order.id' => 'DESC')));
 	$this->set('orders', $orders);
 }
+public function pedidos_garcon($id){
+	$this->Order->recursive = 2;
+	$filter["conditions"]["Order.table_id"] = $id;
+	$filter["order"] = array('Order.id' => 'DESC');
+	$this->paginate = $filter; 	
+	$this->set('orders', $this->Paginator->paginate());
+}
+
+public function efetuar_pedido_garcon(){
+	$products = $this->Order->Product->find('list');
+	$tables = $this->Order->Table->find('list');
+	$pedidos_sessao = $this->Session->read("Pedidos");
+	if(count($pedidos_sessao) > 0){
+		$pedidos_sessao['total'] = 0;
+		foreach($pedidos_sessao['Product'] as $index => $pedido){
+			$pedidos_sessao['Product'][$index]['Product'] = $this->Product->find('first',array('conditions' => array('id' => $pedido['product_id'])))['Product'];
+			$pedidos_sessao['total'] += $pedidos_sessao['Product'][$index]['Product']['price'] * $pedido['quantity'];
+		}
+	}
+	$this->set(compact('tables', 'users', 'products', 'pedidos_sessao'));
+}
 public function listar(){
 		$this->Order->recursive = 2;
 	$orders = $this->Paginator->paginate();

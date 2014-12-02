@@ -25,6 +25,11 @@ class TablesController extends AppController {
 		$this->set('tables', $this->Paginator->paginate());
 	}
 
+	public function garcon() {
+		$this->Table->recursive = 0;
+		$this->set('tables', $this->Paginator->paginate());
+	}
+
 /**
  * view method
  *
