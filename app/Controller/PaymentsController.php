@@ -15,6 +15,7 @@ class PaymentsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
+public $uses = array("Payment","Table","Order");
 
 /**
  * index method
@@ -48,16 +49,37 @@ class PaymentsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Payment->create();
-			if ($this->Payment->save($this->request->data)) {
-				$this->Session->setFlash(__('The payment has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The payment could not be saved. Please, try again.'));
+			$orders = $this->Order->find("all",array("conditions"=>array("Order.table_id"=>$this->request->data['Payment']['table_id'],"Order.status"=>0)));
+			$pedido_em_aberto = false;
+			foreach($orders as $order){
+				if(
+					(
+						$order['Order']['tipo'] == 1 && 
+						($order['Order']['liberado_cozinha'] == 0 || $order['Order']['liberado_balcao'] == 0)
+					) || 
+					$order['Order']['tipo'] == 2 && $order['Order']['liberado_cozinha'] == 0 || 
+					$order['Order']['tipo'] == 3 && $order['Order']['liberado_balcao'] == 0
+				){
+					$pedido_em_aberto = true;
+				}
 			}
+			if(!$pedido_em_aberto){
+				foreach($orders as $order){
+					$this->request->data['Payment']['order_id'] = $order['Order']['id'];
+					$this->Payment->create();
+					$this->Payment->save($this->request->data);
+
+					$this->request->data["Order"]["id"] = $order['Order']['id'];
+					$this->request->data["Order"]["status"] = 1;
+					$this->Order->save($this->request->data);
+				}
+			}else{
+				$this->Session->setFlash(__('Mesa com pedidos em aberto'));
+			}
+			return $this->redirect(array('action' => 'index'));
 		}
-		$orders = $this->Payment->Order->find('list');
-		$this->set(compact('orders'));
+		$tables = $this->Table->find('list');
+		$this->set(compact('tables'));
 	}
 
 /**
@@ -82,8 +104,8 @@ class PaymentsController extends AppController {
 			$options = array('conditions' => array('Payment.' . $this->Payment->primaryKey => $id));
 			$this->request->data = $this->Payment->find('first', $options);
 		}
-		$orders = $this->Payment->Order->find('list');
-		$this->set(compact('orders'));
+		$tables = $this->Table->find('list');
+		$this->set(compact('tables'));
 	}
 
 /**

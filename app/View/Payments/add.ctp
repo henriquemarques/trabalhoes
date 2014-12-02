@@ -3,8 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Registrar Pagamento'); ?></legend>
 	<?php
-		echo $this->Form->input('order_id',array("label"=>"Pedido"));
-		echo $this->Form->input('status',array("options"=>array("0"=>"Não Pago","1"=>"Pago")));
+		echo $this->Form->input('table_id',array("options"=>$tables, "label"=>"Mesa"));
+		echo $this->Form->input('status',array('value'=>'1','type'=>'hidden'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

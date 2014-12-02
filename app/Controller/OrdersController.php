@@ -23,8 +23,23 @@ public $uses = array("Order","Product");
  * @return void
  */
 public function index() {
+	$grupo_usuario = $this->Auth->user('group_id');
 	$this->Order->recursive = 2;
-	$orders = $this->Order->find("all",array("conditions"=>array("Order.status"=>0),"order"=>array('Order.id' => 'DESC')));
+	$conditions = array("Order.status" => 0);
+	if($grupo_usuario == 6){
+		$conditions['OR'] = array(
+            array('Order.tipo' => 1),
+            array('Order.tipo' => 2),
+        );
+        $conditions['liberado_cozinha'] = 0;
+	}else if($grupo_usuario == 5){
+		$conditions['OR'] = array(
+            array('Order.tipo' => 1),
+            array('Order.tipo' => 3),
+        );
+        $conditions['liberado_balcao'] = 0;
+	}
+	$orders = $this->Order->find("all",array("conditions"=>$conditions,"order"=>array('Order.id' => 'DESC')));
 	$this->set('orders', $orders);
 }
 public function pedidos_garcon($id){
@@ -142,6 +157,7 @@ public function delete($id = null) {
 public function despesas(){ 	
 	$this->Order->recursive = 2;
 	$filter["conditions"]["Order.user_id"] = $this->Auth->User("id");
+	$filter["conditions"]["Order.status"] = 0;
 	$filter["order"] = array('Order.id' => 'DESC');
 	$this->paginate = $filter; 	
 	$this->set('orders', $this->Paginator->paginate());
@@ -187,6 +203,25 @@ public function cancelar_pedido(){
 public function finalizar_pedido(){
 	$pedidos_sessao = $this->Session->read("Pedidos");
 	$pedidos_sessao['user_id'] = $this->Auth->user('id');
+
+	$tem_bebida = 0;
+	$tem_comida = 0;
+	foreach($pedidos_sessao['Product'] as $index => $pedido){
+		$product = $this->Product->find('first',array('conditions' => array('id' => $pedido['product_id'])))['Product'];
+		if($product['tipo'] == 1){
+			$tem_comida = 1;
+		}else{
+			$tem_bebida = 1;
+		}
+	}
+	if($tem_comida && $tem_bebida){
+		$pedidos_sessao['tipo'] = 1;
+	}else if($tem_comida){
+		$pedidos_sessao['tipo'] = 2;
+	}else{
+		$pedidos_sessao['tipo'] = 3;
+	}
+
 	$this->Order->create();
 	$this->Order->save($pedidos_sessao);
 	$this->Session->write('Pedidos', array());
@@ -194,7 +229,12 @@ public function finalizar_pedido(){
 }
 
 public function liberar_pedido(){
-	$this->request->data["Order"]["status"] = 1;
+	$grupo_usuario = $this->Auth->user('group_id');
+	if($grupo_usuario == 6){
+		$this->request->data["Order"]["liberado_cozinha"] = 1;
+	}else if($grupo_usuario == 5){
+		$this->request->data["Order"]["liberado_balcao"] = 1;
+	}
 	$this->Order->save($this->request->data);
 	$this->redirect(array("action"=>"index"));
 }

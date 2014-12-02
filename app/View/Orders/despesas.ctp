@@ -20,7 +20,7 @@
 						- <?php echo utf8_encode($product["name"]);?></br>
 					<?php endforeach; ?>
 						<strong>Valor: </strong>R$ <?php echo $total;?></br>
-						<strong>Status: </strong><?php echo ($order['Order']['status']) ? '<span style="color:#009900">Pedido liberado</span>' : '<span style="color:#990000">Aguardando cozinha</span>';?></br>
+						<strong>Status: </strong><?php echo (($order['Order']['tipo'] == 1 && ($order['Order']['liberado_cozinha'] == 0 || $order['Order']['liberado_balcao'] == 0)) || $order['Order']['tipo'] == 2 && $order['Order']['liberado_cozinha'] == 0 || $order['Order']['tipo'] == 3 && $order['Order']['liberado_balcao'] == 0) ? '<span style="color:#990000">Aguardando</span>' : '<span style="color:#009900">Pedido liberado</span>';?></br>
 				</p>
 			</div>
 		</div>

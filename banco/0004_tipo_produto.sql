@@ -1,0 +1,1 @@
+ALTER TABLE `products`  ADD `tipo` INT(1) NOT NULL;

@@ -113,6 +113,9 @@ public function direciona(){
 		case '6':
 			$this->redirect(array('controller'=>'orders','action' => 'index'));
 			break;
+		case '5':
+			$this->redirect(array('controller'=>'orders','action' => 'index'));
+			break;
 		case '1':
 				$this->redirect(array('controller'=>'pages','action' => 'display','gerente'));
 			break;
@@ -147,7 +150,7 @@ public function funcionarios(){
 }
 public function consultar(){
 	if($this->request->query){
-		$filtro["conditions"] = array("User.name LIKE"=>"%{$this->request->query["name"]}%");
+		$filtro["conditions"] = array("User.name LIKE"=>"%{$this->request->query["name"]}%","not"=>array("User.group_id"=>3));
 		$user = $this->User->find('first',$filtro);
 		if(isset($user["User"]["id"])){
 			$this->redirect(array("action"=>'view',$user["User"]["id"]));
@@ -160,13 +163,19 @@ public function consultar(){
 
 public function cadastrar(){
 	if ($this->request->is('post')) {
-		$this->User->create();
-		if ($this->User->save($this->request->data)) {
-			if ($this->Auth->login()) {
-				return $this->redirect($this->Auth->redirect());
+		$user = $this->User->find('first',array("conditions" => array("User.username"=>$this->request->data['User']['username'])));
+		if(count($user) > 0){
+			$this->Session->setFlash(__('Ja existe um usuario cadastrado com esse username'));
+			return $this->redirect(array('action' => 'login'));
+		}else{
+			$this->User->create();
+			if ($this->User->save($this->request->data)) {
+				if ($this->Auth->login()) {
+					return $this->redirect($this->Auth->redirect());
+				}
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
-		} else {
-			$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 		}
 	}
 }

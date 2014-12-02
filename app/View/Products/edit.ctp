@@ -6,6 +6,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('price');
+		echo $this->Form->input('tipo',array('options'=>array(1=>'Comida',2=>'Bebida'),'type'=>'select','class'=>'form-control','label'=>'Tipo'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -14,6 +14,7 @@ class TablesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+	public $uses = array("Table","Order");
 
 /**
  * index method
@@ -98,11 +99,35 @@ class TablesController extends AppController {
 		if (!$this->Table->exists()) {
 			throw new NotFoundException(__('Invalid table'));
 		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Table->delete()) {
-			$this->Session->setFlash(__('The table has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The table could not be deleted. Please, try again.'));
+		$orders = $this->Order->find("all",array("conditions"=>array("Order.table_id"=>$this->Table->id,"Order.status"=>0)));
+		$pedido_em_aberto = false;
+		foreach($orders as $order){
+			if(
+				(
+					$order['Order']['tipo'] == 1 && 
+					($order['Order']['liberado_cozinha'] == 0 || $order['Order']['liberado_balcao'] == 0)
+				) || 
+				$order['Order']['tipo'] == 2 && $order['Order']['liberado_cozinha'] == 0 || 
+				$order['Order']['tipo'] == 3 && $order['Order']['liberado_balcao'] == 0
+			){
+				$pedido_em_aberto = true;
+			}
+		}
+		if(!$pedido_em_aberto){
+			foreach($orders as $order){
+				$this->request->data["Order"]["id"] = $order['Order']['id'];
+				$this->Order->save($this->request->data);
+				$this->Order->delete();
+			}
+
+			$this->request->allowMethod('post', 'delete');
+			if ($this->Table->delete()) {
+				$this->Session->setFlash(__('The table has been deleted.'));
+			} else {
+				$this->Session->setFlash(__('The table could not be deleted. Please, try again.'));
+			}
+		}else{
+			$this->Session->setFlash(__('Mesa com pedidos em aberto'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

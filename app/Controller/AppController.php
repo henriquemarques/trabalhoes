@@ -72,7 +72,10 @@ class AppController extends Controller {
 				$this->redirect(array("controller"=>"tables","action"=>"disponiveis"));
 			}
 			break;
-			case '6';
+			case '6':
+			$this->layout = 'kitchen';
+			break;
+			case '5':
 			$this->layout = 'kitchen';
 			break;
 			case '2':

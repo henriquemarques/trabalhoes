@@ -19,8 +19,6 @@
 		<td><?php echo ($payment['Payment']['status']) ? '<span class="label label-success">Pago</span>
 ' : '<span class="label label-danger">Não Pago</span>'; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $payment['Payment']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $payment['Payment']['id']), array(), __('Are you sure you want to delete # %s?', $payment['Payment']['id'])); ?>
 		</td>
 	</tr>
